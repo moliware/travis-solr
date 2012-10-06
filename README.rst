@@ -13,7 +13,9 @@ Usage
 
 Supported versions:
 
+- 3.6.0
 - 3.6.1
+- 4.0.0
 
 
 Travis-ci
