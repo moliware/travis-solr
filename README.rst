@@ -21,4 +21,4 @@ Travis-ci
 
 Add this line to your .travis.yml: ::
 
-before_script: curl https://raw.github.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=3.6.1 bash
+  before_script: curl https://raw.github.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=3.6.1 bash
