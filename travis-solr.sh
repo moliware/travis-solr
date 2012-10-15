@@ -42,8 +42,8 @@ download_and_run() {
             dir_name="apache-solr-3.6.1"
             ;;
         4.0.0)
-            url="http://www.us.apache.org/dist/lucene/solr/4.0.0-BETA/apache-solr-4.0.0-BETA.tgz"
-            dir_name="apache-solr-4.0.0-BETA"
+            url="http://www.us.apache.org/dist/lucene/solr/4.0.0/apache-solr-4.0.0.tgz"
+            dir_name="apache-solr-4.0.0"
             ;;
     esac
 
