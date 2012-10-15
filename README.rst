@@ -24,7 +24,7 @@ SOLR_CONFS:
 ...........
 
 If you need to use some custom configuration you can specify one or more files 
-in this variable and the script will copy it in the conf folder of solr.
+in this variable and the script will copy it in the solr conf folder.
 
 Don't use it if you need the default solr settings.
 
@@ -38,6 +38,8 @@ this variable to a json file that contains your custom documents.
 Travis-ci
 ---------
 
-Add this line to your .travis.yml: ::
+Edit your .travis.yml and use travis-solr as a *before_script* script. 
+For example if you want to use solr 3.6.1 with the default settings you can add this
+line to your .travis.yml: ::
 
   before_script: curl https://raw.github.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=3.6.1 bash
