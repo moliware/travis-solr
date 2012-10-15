@@ -9,13 +9,30 @@ Usage
 
 ::
 
-  curl https://raw.github.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=3.6.1 bash
+  curl https://raw.github.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=3.6.1 SOLR_CONFS=schema.xml solrconfig.xml SOLR_DOCS=custom_docs.json bash
 
-Supported versions:
+SOLR_VERSION:
+.............
+
+You have to specify one of these versions:
 
 - 3.6.0
 - 3.6.1
 - 4.0.0
+
+SOLR_CONFS:
+...........
+
+If you need to use some custom configuration you can specify one or more files 
+in this variable and the script will copy it in the conf folder of solr.
+
+Don't use it if you need the default solr settings.
+
+SOLR_DOCS:
+..........
+
+By default the script will index exampledocs/books.json documents. You can point
+this variable to a json file that contains your custom documents.
 
 
 Travis-ci

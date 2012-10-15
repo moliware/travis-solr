@@ -22,12 +22,14 @@ run() {
     cd $1/example
     java -jar start.jar  > /dev/null 2>&1 &
     wait_for_solr
+    cd ../../
     echo "Started"
 }
 
 post_some_documents() {
-    cd exampledocs
-    java -Dtype=application/json -Durl=http://localhost:8983/solr/update/json -jar post.jar books.json
+    cd $1/example/exampledocs
+    java -Dtype=application/json -Durl=http://localhost:8983/solr/update/json -jar post.jar $1
+    cd ../../../
 }
 
 
@@ -48,8 +50,29 @@ download_and_run() {
     esac
 
     download $url
+
+    # copies custom configurations
+    for file in $SOLR_CONFS
+    do
+        if [ -f $file ]
+        then
+            cp $file $dir_name/example/solr/conf/
+            echo "Copied $file into solr conf directory."
+        fi
+    done
+
+    # Run solr
     run $dir_name
-    post_some_documents
+
+    # Post documents
+    if [ -f $SOLR_DOCS ]
+    then
+        echo "Indexing $SOLR_DOCS"
+        post_some_documents $dir_name $SOLR_DOCS
+    else
+        echo "Indexing some default documents"
+        post_some_documents $dir_name $dir_name/example/exampledocs/books.json
+    fi
 }
 
 check_version() {
@@ -57,13 +80,11 @@ check_version() {
         3.6.0|3.6.1|4.0.0);;
         *)
             echo "Sorry, $1 is not supported or not valid version."
-            exit 1;
+            exit 1
             ;;
     esac
 }
 
 
 check_version $SOLR_VERSION
-# check java,curl,tar
-
 download_and_run $SOLR_VERSION
