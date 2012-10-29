@@ -27,9 +27,7 @@ run() {
 }
 
 post_some_documents() {
-    cd $1/example/exampledocs
-    java -Dtype=application/json -Durl=http://localhost:8983/solr/update/json -jar post.jar $1
-    cd ../../../
+    java -Dtype=application/json -Durl=http://localhost:8983/solr/update/json -jar $1/example/exampledocs/post.jar $2
 }
 
 
