@@ -38,11 +38,11 @@ download_and_run() {
             dir_name="apache-solr-3.6.0"
             ;;
         3.6.1)
-            url="http://www.us.apache.org/dist/lucene/solr/3.6.1/apache-solr-3.6.1.tgz"
+            url="http://apache.rediris.es/lucene/solr/3.6.1/apache-solr-3.6.1.tgz"
             dir_name="apache-solr-3.6.1"
             ;;
         4.0.0)
-            url="http://www.us.apache.org/dist/lucene/solr/4.0.0/apache-solr-4.0.0.tgz"
+            url="http://apache.rediris.es/lucene/solr/4.0.0/apache-solr-4.0.0.tgz"
             dir_name="apache-solr-4.0.0"
             ;;
     esac
@@ -63,13 +63,13 @@ download_and_run() {
     run $dir_name
 
     # Post documents
-    if [ -f $SOLR_DOCS ]
+    if [ -z "$SOLR_DOCS" ]
     then
-        echo "Indexing $SOLR_DOCS"
-        post_some_documents $dir_name $SOLR_DOCS
-    else
         echo "Indexing some default documents"
         post_some_documents $dir_name $dir_name/example/exampledocs/books.json
+    else
+        echo "Indexing $SOLR_DOCS"
+        post_some_documents $dir_name $SOLR_DOCS
     fi
 }
 
