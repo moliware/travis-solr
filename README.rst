@@ -16,6 +16,7 @@ SOLR_VERSION:
 
 You have to specify one of these versions:
 
+- 3.5.0
 - 3.6.0
 - 3.6.1
 - 4.0.0
