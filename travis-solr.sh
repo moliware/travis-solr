@@ -43,11 +43,11 @@ download_and_run() {
             dir_name="apache-solr-3.5.0"
             ;;
         3.6.0)
-            url="http://apache.rediris.es/lucene/solr/3.6.0/apache-solr-3.6.0.tgz"
+            url="http://archive.apache.org/dist/lucene/solr/3.6.0/apache-solr-3.6.0.tgz"
             dir_name="apache-solr-3.6.0"
             ;;
         3.6.1)
-            url="http://apache.rediris.es/lucene/solr/3.6.1/apache-solr-3.6.1.tgz"
+            url="http://archive.apache.org/dist/lucene/solr/3.6.1/apache-solr-3.6.1.tgz"
             dir_name="apache-solr-3.6.1"
             ;;
         3.6.2)
