@@ -50,6 +50,10 @@ download_and_run() {
             url="http://apache.rediris.es/lucene/solr/3.6.1/apache-solr-3.6.1.tgz"
             dir_name="apache-solr-3.6.1"
             ;;
+        3.6.2)
+            url="http://apache.rediris.es/lucene/solr/3.6.1/apache-solr-3.6.2.tgz"
+            dir_name="apache-solr-3.6.2"
+            ;;
         4.0.0)
             url="http://apache.rediris.es/lucene/solr/4.0.0/apache-solr-4.0.0.tgz"
             dir_name="apache-solr-4.0.0"
@@ -84,7 +88,7 @@ download_and_run() {
 
 check_version() {
     case $1 in
-        3.5.0|3.6.0|3.6.1|4.0.0);;
+        3.5.0|3.6.0|3.6.1|3.6.2|4.0.0);;
         *)
             echo "Sorry, $1 is not supported or not valid version."
             exit 1
