@@ -37,9 +37,8 @@ Don't use it if you need the default solr settings.
 SOLR_DOCS:
 ..........
 
-By default the script will index exampledocs/books.json documents. You can point
-this variable to a json file that contains your custom documents.
-
+By default the script will not index any documents. You can point
+this variable to a json file that contains your custom documents for indexing.
 
 Travis-ci
 ---------

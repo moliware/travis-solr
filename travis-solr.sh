@@ -103,8 +103,7 @@ download_and_run() {
     # Post documents
     if [ -z "$SOLR_DOCS" ]
     then
-        echo "Indexing some default documents"
-        post_some_documents $dir_name $dir_name/example/exampledocs/books.json
+        echo "$SOLR_DOCS not defined, skipping initial indexing"
     else
         echo "Indexing $SOLR_DOCS"
         post_some_documents $dir_name $SOLR_DOCS
