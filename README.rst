@@ -24,7 +24,10 @@ You have to specify one of these versions:
 - 4.1.0
 - 4.2.0
 - 4.2.1
+- 4.3.1
 - 4.4.0
+- 4.5.0
+- 4.5.1
 
 SOLR_CONFS:
 ...........
@@ -37,9 +40,8 @@ Don't use it if you need the default solr settings.
 SOLR_DOCS:
 ..........
 
-By default the script will index exampledocs/books.json documents. You can point
-this variable to a json file that contains your custom documents.
-
+By default the script will not index any documents. You can point
+this variable to a json file that contains your custom documents for indexing.
 
 Travis-ci
 ---------
