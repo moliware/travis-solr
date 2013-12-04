@@ -40,6 +40,11 @@ SOLR_DOCS:
 By default the script will index exampledocs/books.json documents. You can point
 this variable to a json file that contains your custom documents.
 
+SOLR_PORT:
+..........
+
+If you want your Solr instance to run on a different TCP port, define this variable;
+Solr will run on the default port 8983 if left blank.
 
 Travis-ci
 ---------
