@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+SOLR_PORT=${SOLR_PORT:-8983}
+
 download() {
     echo "Downloading solr from $1..."
     curl -s $1 | tar xz
@@ -7,7 +9,7 @@ download() {
 }
 
 is_solr_up(){
-    http_code=`echo $(curl -s -o /dev/null -w "%{http_code}" "http://localhost:8983/solr/admin/ping")`
+    http_code=`echo $(curl -s -o /dev/null -w "%{http_code}" "http://localhost:$SOLR_PORT/solr/admin/ping")`
     return `test $http_code = "200"`
 }
 
@@ -18,13 +20,14 @@ wait_for_solr(){
 }
 
 run() {
-    echo "Starting solr ..."
+    echo "Starting solr on port ${SOLR_PORT}..."
+
     cd $1/example
     if [ $DEBUG ]
     then
-        java -jar start.jar &
+        java -Djetty.port=$SOLR_PORT -jar start.jar &
     else
-        java -jar start.jar  > /dev/null 2>&1 &
+        java -Djetty.port=$SOLR_PORT -jar start.jar > /dev/null 2>&1 &
     fi
     wait_for_solr
     cd ../../
@@ -32,7 +35,7 @@ run() {
 }
 
 post_some_documents() {
-    java -Dtype=application/json -Durl=http://localhost:8983/solr/update/json -jar $1/example/exampledocs/post.jar $2
+    java -Dtype=application/json -Durl=http://localhost:$SOLR_PORT/solr/update/json -jar $1/example/exampledocs/post.jar $2
 }
 
 
@@ -98,7 +101,7 @@ download_and_run() {
     done
 
     # Run solr
-    run $dir_name
+    run $dir_name $SOLR_PORT
 
     # Post documents
     if [ -z "$SOLR_DOCS" ]
