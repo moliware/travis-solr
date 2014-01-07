@@ -81,9 +81,29 @@ download_and_run() {
             dir_name="solr-4.2.1"
             dir_conf="collection1/conf/"
             ;;
+        4.3.1)
+            url="http://archive.apache.org/dist/lucene/solr/4.3.1/solr-4.3.1.tgz"
+            dir_name="solr-4.3.1"
+            dir_conf="collection1/conf/"
+            ;;
         4.4.0)
             url="http://archive.apache.org/dist/lucene/solr/4.4.0/solr-4.4.0.tgz"
             dir_name="solr-4.4.0"
+            dir_conf="collection1/conf/"
+            ;;
+        4.5.0)
+            url="http://archive.apache.org/dist/lucene/solr/4.5.0/solr-4.5.0.tgz"
+            dir_name="solr-4.5.0"
+            dir_conf="collection1/conf/"
+            ;;
+        4.5.1)
+            url="http://archive.apache.org/dist/lucene/solr/4.5.1/solr-4.5.1.tgz"
+            dir_name="solr-4.5.1"
+            dir_conf="collection1/conf/"
+            ;;
+        4.6.0)
+            url="http://archive.apache.org/dist/lucene/solr/4.6.0/solr-4.6.0.tgz"
+            dir_name="solr-4.6.0"
             dir_conf="collection1/conf/"
             ;;
     esac
@@ -106,8 +126,7 @@ download_and_run() {
     # Post documents
     if [ -z "$SOLR_DOCS" ]
     then
-        echo "Indexing some default documents"
-        post_some_documents $dir_name $dir_name/example/exampledocs/books.json
+        echo "$SOLR_DOCS not defined, skipping initial indexing"
     else
         echo "Indexing $SOLR_DOCS"
         post_some_documents $dir_name $SOLR_DOCS
@@ -116,7 +135,7 @@ download_and_run() {
 
 check_version() {
     case $1 in
-        3.5.0|3.6.0|3.6.1|3.6.2|4.0.0|4.1.0|4.2.0|4.2.1|4.4.0);;
+        3.5.0|3.6.0|3.6.1|3.6.2|4.0.0|4.1.0|4.2.0|4.2.1|4.3.1|4.4.0|4.5.0|4.5.1|4.6.0);;
         *)
             echo "Sorry, $1 is not supported or not valid version."
             exit 1
