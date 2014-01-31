@@ -29,6 +29,7 @@ You have to specify one of these versions:
 - 4.5.0
 - 4.5.1
 - 4.6.0
+- 4.6.1
 
 SOLR_CONFS:
 ...........
