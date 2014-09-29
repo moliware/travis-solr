@@ -157,7 +157,7 @@ download_and_run() {
             dir_conf="collection1/conf/"
             ;;
         4.9.1)
-            url="http://mirror.nl.webzilla.com/apache/lucene/solr/4.9.1/solr-4.9.1.tgz"
+            url="http://archive.apache.org/dist/lucene/solr/4.9.1/solr-4.9.1.tgz"
             dir_name="solr-4.9.1"
             dir_conf="collection1/conf/"
             ;;
