@@ -13,7 +13,7 @@ download() {
     else
        echo "File $FILE does not exist. Downloading solr from $1..."
        curl -O $1
-       tar -zxvf $FILE
+       tar -zxf $FILE
     fi
     echo "Downloaded!"
 }
