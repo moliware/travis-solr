@@ -2,7 +2,7 @@
 
 SOLR_PORT=${SOLR_PORT:-8983}
 SOLR_VERSION=${SOLR_VERSION:-4.9.1}
-DEBUG=${DEBUG:-0}
+DEBUG=${DEBUG:-false}
 SOLR_CORE=${SOLR_CORE:-core0}
 
 download() {
@@ -10,6 +10,7 @@ download() {
     if [ -f $FILE ];
     then
        echo "File $FILE exists."
+       tar -zxf $FILE
     else
        echo "File $FILE does not exist. Downloading solr from $1..."
        curl -O $1
@@ -41,7 +42,7 @@ run() {
     # go to the solr folder
     cd $1/example
 
-    if [ $DEBUG ]
+    if [ "$DEBUG" = "true" ]
     then
         java -Djetty.port=$solr_port -Dsolr.solr.home=multicore -jar start.jar &
     else
@@ -49,7 +50,6 @@ run() {
     fi
     wait_for_solr
     cd ../../
-    curl "http://localhost:8983/solr/admin/cores?action=CREATE&name=${solr_core}&instanceDir=${solr_core}&config=solrconfig.xml&schema=schema.xml&dataDir=data"
     echo "Started"
 }
 
@@ -209,7 +209,7 @@ post_documents() {
       # Post documents
     if [ -z "${solr_docs}" ]
     then
-        echo "$solr_docs not defined, skipping initial indexing"
+        echo "SOLR_DOCS not defined, skipping initial indexing"
     else
         echo "Indexing $solr_docs"
         java -Dtype=application/json -Durl=http://localhost:$solr_port/solr/$solr_core/update/json -jar $dir_name/example/exampledocs/post.jar $solr_docs
