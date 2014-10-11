@@ -60,6 +60,17 @@ SOLR_PORT:
 If you want your Solr instance to run on a different TCP port, define this variable;
 Solr will run on the default port 8983 if left blank.
 
+SOLR_CORE:
+..........
+
+Select the core, by default core0
+
+DEBUG
+.....
+
+If 'true' prints solr logs
+
+
 Travis-ci
 ---------
 
