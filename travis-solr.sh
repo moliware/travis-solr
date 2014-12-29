@@ -146,6 +146,26 @@ download_and_run() {
             dir_name="solr-4.9.1"
             dir_conf="collection1/conf/"
             ;;
+        4.10.0)
+            url="http://archive.apache.org/dist/lucene/solr/4.10.0/solr-4.10.0.tgz"
+            dir_name="solr-4.10.0"
+            dir_conf="collection1/conf/"
+            ;;
+        4.10.1)
+            url="http://archive.apache.org/dist/lucene/solr/4.10.1/solr-4.10.1.tgz"
+            dir_name="solr-4.10.1"
+            dir_conf="collection1/conf/"
+            ;;
+        4.10.2)
+            url="http://archive.apache.org/dist/lucene/solr/4.10.2/solr-4.10.2.tgz"
+            dir_name="solr-4.10.2"
+            dir_conf="collection1/conf/"
+            ;;
+        4.10.3)
+            url="http://archive.apache.org/dist/lucene/solr/4.10.3/solr-4.10.3.tgz"
+            dir_name="solr-4.10.3"
+            dir_conf="collection1/conf/"
+            ;;
     esac
 
     download $url
@@ -175,7 +195,7 @@ download_and_run() {
 
 check_version() {
     case $1 in
-        3.5.0|3.6.0|3.6.1|3.6.2|4.0.0|4.1.0|4.2.0|4.2.1|4.3.1|4.4.0|4.5.0|4.5.1|4.6.0|4.6.1|4.7.0|4.7.1|4.7.2|4.8.0|4.8.1|4.9.0|4.9.1);;
+        3.5.0|3.6.0|3.6.1|3.6.2|4.0.0|4.1.0|4.2.0|4.2.1|4.3.1|4.4.0|4.5.0|4.5.1|4.6.0|4.6.1|4.7.0|4.7.1|4.7.2|4.8.0|4.8.1|4.9.0|4.9.1|4.10.0|4.10.1|4.10.2|4.10.3);;
         *)
             echo "Sorry, $1 is not supported or not valid version."
             exit 1
