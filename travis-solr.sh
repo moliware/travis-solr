@@ -207,6 +207,7 @@ add_core() {
     # copies custom configurations
     if [ -d "${solr_confs}" ] ; then
       cp -R $solr_confs/* $dir_name/example/multicore/$solr_core/conf/
+      echo "Copied $solr_confs/* to solr conf directory."
     else
       for file in $solr_confs
       do
@@ -218,6 +219,10 @@ add_core() {
             exit 1
         fi
       done
+    fi
+    if [ "$solr_core" != "core0" -a "$solr_core" != "core1" ] ; then
+        echo "Adding $solr_core to solr.xml"
+        sed -i -e "s/<\/cores>/<core name=\"$solr_core\" instanceDir=\"$solr_core\" \/><\/cores>/" $dir_name/example/multicore/solr.xml
     fi
 }
 
