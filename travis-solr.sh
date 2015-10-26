@@ -184,7 +184,7 @@ download_and_run() {
     esac
 
     download $url $dir_name
-    add_core $dir_name $dir_conf $SOLR_CORE $SOLR_CONFS
+    add_core $dir_name $dir_conf $SOLR_CORE "$SOLR_CONFS"
     run $dir_name $SOLR_PORT $SOLR_CORE
 
     if [ -z "${SOLR_DOCS}" ]
