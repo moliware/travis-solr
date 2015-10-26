@@ -204,6 +204,9 @@ add_core() {
     [[ -d "${dir_name}/example/multicore/${solr_core}" ]] || mkdir $dir_name/example/multicore/$solr_core
     [[ -d "${dir_name}/example/multicore/${solr_core}/conf" ]] || mkdir $dir_name/example/multicore/$solr_core/conf
 
+    # copy text configs from default single core conf to new core to have proper defaults
+    cp -R $dir_name/example/solr/conf/{lang,*.txt} $dir_name/example/multicore/$solr_core/conf/
+
     # copies custom configurations
     if [ -d "${solr_confs}" ] ; then
       cp -R $solr_confs/* $dir_name/example/multicore/$solr_core/conf/
@@ -220,6 +223,8 @@ add_core() {
         fi
       done
     fi
+
+    # enable custom core
     if [ "$solr_core" != "core0" -a "$solr_core" != "core1" ] ; then
         echo "Adding $solr_core to solr.xml"
         sed -i -e "s/<\/cores>/<core name=\"$solr_core\" instanceDir=\"$solr_core\" \/><\/cores>/" $dir_name/example/multicore/solr.xml
