@@ -315,7 +315,7 @@ create_collection() {
     name=$2
     dir_conf=$3
     solr_port=$4
-    ./$dir_name/bin/solr create -c $name -d $dir_conf -shards 1 -replicationFactor 1 -p solr_port
+    ./$dir_name/bin/solr create -c $name -d $dir_conf -shards 1 -replicationFactor 1 -p $solr_port
     echo "Created collection $name"
 }
 
