@@ -87,7 +87,7 @@ download_and_run() {
             dir_name="solr-${version}"
             dir_conf="collection1/conf/"
             ;;
-        5.*)
+        5.*|6.*)
             url="http://archive.apache.org/dist/lucene/solr/${version}/solr-${version}.tgz"
             dir_name="solr-${version}"
             ;;
@@ -97,7 +97,7 @@ download_and_run() {
     esac
 
     download $url $dir_name
-    if [[ $1 == 5* ]]
+    if [[ $1 == 5* || $1 == 6* ]]
     then
         if [ -z "${SOLR_COLLECTION_CONF}" ]
         then
