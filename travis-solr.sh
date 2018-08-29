@@ -87,7 +87,7 @@ download_and_run() {
             dir_name="solr-${version}"
             dir_conf="collection1/conf/"
             ;;
-        5.*|6.*)
+        5.*|6.*|7.*)
             url="http://archive.apache.org/dist/lucene/solr/${version}/solr-${version}.tgz"
             dir_name="solr-${version}"
             ;;
