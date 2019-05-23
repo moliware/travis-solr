@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 SOLR_PORT=${SOLR_PORT:-8983}
-SOLR_VERSION=${SOLR_VERSION:-4.9.1}
+SOLR_VERSION=${SOLR_VERSION:-8.1.0}
 DEBUG=${DEBUG:-false}
 SOLR_CORE=${SOLR_CORE:-core0}
 # Since Solr 5.x
@@ -97,7 +97,7 @@ download_and_run() {
     esac
 
     download $url $dir_name
-    if [[ $1 == 5* || $1 == 6* ]]
+    if [[ $1 == 5* || $1 == 6* || $1 == 7* || $1 == 8* ]]
     then
         if [ -z "${SOLR_COLLECTION_CONF}" ]
         then
