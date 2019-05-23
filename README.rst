@@ -13,28 +13,26 @@ Solr 3.x and 4.x:
 
   curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=3.6.1 SOLR_CONFS="schema.xml solrconfig.xml" SOLR_DOCS=custom_docs.json bash
 
-Solr 5.X:
+Solr 5.x, 6.x, 7.x, and 8.x:
 
 ::
 
-  curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=5.3.1 SOLR_COLLECTION=collection_name SOLR_COLLECTION_CONF=path/to/your/custom/conf SOLR_DOCS=custom_docs.json bash
+  curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=8.1.0 SOLR_COLLECTION=collection_name SOLR_COLLECTION_CONF=path/to/your/custom/conf SOLR_DOCS=custom_docs.json bash
 
-Sorl 5.X schemaless example
+Sorl 5.x, 6.x, 7.x, and 8.x schemaless example
 
 ::
 
-  curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=5.3.1 SOLR_DOCS=custom_docs.json bash
+  curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=8.1.0 SOLR_DOCS=custom_docs.json bash
 
 SOLR_VERSION:
 .............
 
 You have to specify a valid version of Solr. See http://archive.apache.org/dist/lucene/solr/ for available releases.
 
-*Note*: At this time Solr 6 is not supported.
 
-SOLR 3.X and 4.X variables
+SOLR 3.x and 4.x variables
 ..........................
-
 
 SOLR_CONFS:
 :::::::::::
@@ -68,7 +66,7 @@ DEBUG
 
 If 'true' prints solr logs
 
-SOLR 5.X variables
+SOLR 5.x, 6.x, 7.x, and 8.x variables
 ..................
 
 SOLR_DOCS:
@@ -85,14 +83,14 @@ Collection name to be created. If this variable is not set "gettingstarted" will
 SOLR_COLLECTION_CONF
 ::::::::::::::::::::
 
-Path to the collection configuration. If not set the schemaless example that comes with solr 5.X will be used
+Path to the collection configuration. If not set the schemaless example that comes with solr 8.x will be used
 
 
 Travis-ci
 ---------
 
 Edit your .travis.yml and use travis-solr as a *before_script* script.
-For example if you want to use solr 3.6.1 with the default settings you can add this
+For example if you want to use solr 8.1.0 with the default settings you can add this
 line to your .travis.yml: ::
 
-  before_script: curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=3.6.1 bash
+  before_script: curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=8.1.0 bash
