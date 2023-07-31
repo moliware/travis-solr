@@ -91,13 +91,18 @@ download_and_run() {
             url="http://archive.apache.org/dist/lucene/solr/${version}/solr-${version}.tgz"
             dir_name="solr-${version}"
             ;;
+        9.*)
+            url="http://archive.apache.org/dist/solr/solr/${version}/solr-${version}.tgz"
+            dir_name="solr-${version}"
+            ;;
         *)
 			echo "Sorry, $1 is not supported or not valid version."
 			exit 1
     esac
 
+    echo $url
     download $url $dir_name
-    if [[ $1 == 5* || $1 == 6* || $1 == 7* || $1 == 8* ]]
+    if [[ $1 == 5* || $1 == 6* || $1 == 7* || $1 == 8* || $1 == 9* ]]
     then
         if [ -z "${SOLR_COLLECTION_CONF}" ]
         then
@@ -200,4 +205,5 @@ post_documents_solr5() {
     fi
 }
 
+echo $SOLR_VERSION
 download_and_run $SOLR_VERSION
