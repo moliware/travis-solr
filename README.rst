@@ -13,13 +13,13 @@ Solr 3.x and 4.x:
 
   curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=3.6.1 SOLR_CONFS="schema.xml solrconfig.xml" SOLR_DOCS=custom_docs.json bash
 
-Solr 5.x, 6.x, 7.x, and 8.x:
+Solr 5.x, 6.x, 7.x, 8.x, and 9.x
 
 ::
 
   curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=8.1.0 SOLR_COLLECTION=collection_name SOLR_COLLECTION_CONF=path/to/your/custom/conf SOLR_DOCS=custom_docs.json bash
 
-Sorl 5.x, 6.x, 7.x, and 8.x schemaless example
+Solr 5.x, 6.x, 7.x, 8.x, and 9.x schemaless example
 
 ::
 
@@ -66,7 +66,7 @@ DEBUG
 
 If 'true' prints solr logs
 
-SOLR 5.x, 6.x, 7.x, and 8.x variables
+SOLR 5.x, 6.x, 7.x, 8.x, and 9.x  variables
 ..................
 
 SOLR_DOCS:
