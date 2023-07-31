@@ -100,7 +100,6 @@ download_and_run() {
 			exit 1
     esac
 
-    echo $url
     download $url $dir_name
     if [[ $1 == 5* || $1 == 6* || $1 == 7* || $1 == 8* || $1 == 9* ]]
     then
@@ -205,5 +204,4 @@ post_documents_solr5() {
     fi
 }
 
-echo $SOLR_VERSION
 download_and_run $SOLR_VERSION
