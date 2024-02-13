@@ -73,22 +73,26 @@ download_and_run() {
 	version=$1
     case $1 in
         3.*)
-            url="http://archive.apache.org/dist/lucene/solr/${version}/apache-solr-${version}.tgz"
+            url="https://archive.apache.org/dist/lucene/solr/${version}/apache-solr-${version}.tgz"
             dir_name="apache-solr-${version}"
             dir_conf="conf/"
             ;;
         4.0.0)
-            url="http://archive.apache.org/dist/lucene/solr/4.0.0/apache-solr-4.0.0.tgz"
+            url="https://archive.apache.org/dist/lucene/solr/4.0.0/apache-solr-4.0.0.tgz"
             dir_name="apache-solr-4.0.0"
             dir_conf="collection1/conf/"
             ;;
         4.*)
-            url="http://archive.apache.org/dist/lucene/solr/${version}/solr-${version}.tgz"
+            url="https://archive.apache.org/dist/lucene/solr/${version}/solr-${version}.tgz"
             dir_name="solr-${version}"
             dir_conf="collection1/conf/"
             ;;
         5.*|6.*|7.*|8.*)
-            url="http://archive.apache.org/dist/lucene/solr/${version}/solr-${version}.tgz"
+            url="https://archive.apache.org/dist/lucene/solr/${version}/solr-${version}.tgz"
+            dir_name="solr-${version}"
+            ;;
+        9.*)
+            url="https://archive.apache.org/dist/solr/solr/${version}/solr-${version}.tgz"
             dir_name="solr-${version}"
             ;;
         *)
@@ -97,7 +101,7 @@ download_and_run() {
     esac
 
     download $url $dir_name
-    if [[ $1 == 5* || $1 == 6* || $1 == 7* || $1 == 8* ]]
+    if [[ $1 == 5* || $1 == 6* || $1 == 7* || $1 == 8* || $1 == 9* ]]
     then
         if [ -z "${SOLR_COLLECTION_CONF}" ]
         then
